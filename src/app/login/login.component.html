@@ -1,0 +1,28 @@
+<h1 style="text-align:center">
+    Kullanıcı giriş ekranı
+  </h1>
+  <div class="login">
+    
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+        <input type="text" placeholder="Username" formControlName="username">
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+        <div *ngIf="formControls.username.errors.required">Kullanıcı adı gerekli.</div>
+      </div>
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Password" formControlName="password">
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+        <div *ngIf="formControls.password.errors.required">Parola gerekli.</div>
+      </div>
+  
+      <p>
+        <input type="submit" value="Log in">
+      </p>
+    </form>
+  </div>
