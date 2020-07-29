@@ -1,12 +1,17 @@
 <h1 style="text-align:center">
-    Kullanıcı giriş ekranı
+    Kullanıcı giriş ekranı <i class="pi pi-user"></i>
   </h1>
+  
   <div class="login">
     
     <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
   
       <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
-        <input type="text" placeholder="Username" formControlName="username">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" formControlName="username" pInputText>
+          <label for="float-input">Username</label>
+        </span>
+        
       </p>
   
       <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
@@ -14,7 +19,11 @@
       </div>
   
       <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-        <input type="password" placeholder="Password" formControlName="password">
+        <span class="ui-float-label">
+          <input type="password" id="float-input" formControlName="password" pInputText>
+          <label for="float-input">Password</label>
+        </span>
+        
       </p>
   
       <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
